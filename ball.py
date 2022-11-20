@@ -1,5 +1,5 @@
 from turtle import Turtle
-import time
+import random
 
 class Ball(Turtle):
 
@@ -22,8 +22,14 @@ class Ball(Turtle):
         self.y_move *= -1
 
     def bounce_x(self):
-        self.x_move *= -1
-        self.move_speed *= 0.9
+        direction = random.randint(1, 2)
+        if direction == 2:
+            self.x_move *= -1
+            self.move_speed *= 0.9
+        else:
+            self.x_move *= -1
+            self.y_move *= -1
+            self.move_speed *= 0.9
 
     def reset_position(self):
         self.goto(0, 0)
